@@ -16,7 +16,7 @@ class App extends Component{
    return(
     <div>
       {this.state.foods.map(food=>
-       <h1>{food.name}</h1>
+       <h1 key={food.id}>{food.name}</h1>
       )}
     </div>
    )
