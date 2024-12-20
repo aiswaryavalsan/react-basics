@@ -6,18 +6,23 @@ class App extends Component{
     super()
       this.state={
         string:'hello world',
-        foods:[
-          {name:'pizza',id:'ab1'},{name:'burger',id:'as2'},{name:'biriyani',id:'as3'}
-        ]
+       users:[]
       }
     
+  }
+  componentDidMount(){
+    fetch("https://jsonplaceholder.typicode.com/users")
+     .then(response=>response.json())
+     .then(data=>this.setState({users:data}))
   }
   render(){
    return(
     <div>
-      {this.state.foods.map(food=>
-       <h1 key={food.id}>{food.name}</h1>
-      )}
+      {this.state.users.map(user=>{
+        return(
+          <h1 key={user.id}>{user.name}</h1>
+        )
+      })}
     </div>
    )
 }
