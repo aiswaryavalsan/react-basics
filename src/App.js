@@ -1,38 +1,26 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {Component} from 'react';
 class App extends Component{
   constructor(){
     super()
       this.state={
-        string:'hello world'
+        string:'hello world',
+        foods:[
+          {name:'pizza',id:'ab1'},{name:'burger',id:'as2'},{name:'biriyani',id:'as3'}
+        ]
       }
     
   }
   render(){
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        {this.state.string}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-         Learn react
-        </a>
-        <button onClick={()=>this.setState({string:'hai React'})}>change text</button>
-        {this.state.string}
-      </header>
-      
+   return(
+    <div>
+      {this.state.foods.map(food=>
+       <h1>{food.name}</h1>
+      )}
     </div>
-  );
+   )
 }
 }
-
 
 export default App;
